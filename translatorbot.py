@@ -19,8 +19,16 @@ class TextAnalysis():
 
     
     def get_answer(self):
-        res = self.__translate("I don't know how to help", "en", "tr")
-        return res
+        questions = {
+            'adın ne?': "ben süper havalı bir botum ve amacım size yardım etmek!",
+            'kaç yaşındasın?': "bu çok felsefi bir soru ama belli bir yaşım yok"
+        }
+
+        if self.text.lower() in questions.keys():
+            return questions[self.text.lower()]
+        else:
+            return 'Cevap Bulamadım'
+
 
     def __translate(self, text, from_lang, to_lang):
         try:
